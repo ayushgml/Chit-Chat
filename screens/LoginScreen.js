@@ -24,7 +24,8 @@ const LoginScreen = ({navigation}) => {
                     width:200, height:200
                 }}
             />
-            <View style={styles.inputContainer}>
+            <View style={ styles.inputContainer }>
+                {/* Input field */}
                 <Input
                     placeholder="Email"
                     autoFocus
