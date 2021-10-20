@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar'
 import React, { useState } from 'react'
 import { KeyboardAvoidingView } from 'react-native'
-import { StyleSheet, Text, View, Button } from 'react-native'
-import { Image } from 'react-native-elements'
+import { StyleSheet, View } from 'react-native'
+import { Image, Text, Button } from 'react-native-elements'
 import { Input } from 'react-native-elements/dist/input/Input'
 
 
@@ -57,7 +57,7 @@ const styles = StyleSheet.create( {
     },
     button: {
         width: 200,
-        marginTop: 10,
+        margin: 10,
     },
     container: {
         flex: 1,
