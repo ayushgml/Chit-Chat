@@ -4,10 +4,11 @@ import { StatusBar } from 'react-native'
 import { StyleSheet, View, KeyboardAvoidingView } from 'react-native'
 import { Button, Text } from 'react-native-elements'
 import { Input } from 'react-native-elements/dist/input/Input'
+import { auth } from '../firebase'
 
 const RegisterScreen = ( { navigation } ) => {
     const [ name, setName ] = useState( "" );
-    const [ email, setEmail ] = useState( "" );
+    const [ email, setEmail ] = useState( "" ) ;
     const [ password, setPassword ] = useState( "" );
     const [ image, setImage ] = useState( "" );
 
@@ -16,9 +17,16 @@ const RegisterScreen = ( { navigation } ) => {
             headerBackTitle: "Back to Login",
         })
     }, [navigation])
- 
+
     const register = () => {
-        
+        auth.createUserWithEmailAndPassword( email, password )
+        .then( authUser => {
+            authUser.user.updateProfile( {
+                displayName: name,
+                photoURL: imageUrl || "https://cdn.business2community.com/wp-content/uploads/2014/08/My_profile-orange.png",
+                
+            })
+        }).catch(error => alert(error.message))
     }
 
     return (
